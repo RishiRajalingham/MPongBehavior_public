@@ -200,28 +200,13 @@ class PongRNNSummarizer(object):
             'geom_vis': lambda x: RAU.get_model_geometry(x, epoch_mask='output_vis'),
             'geom_sim': lambda x: RAU.get_model_geometry(x, epoch_mask='output_sim'),
 
-            # 'piecewise_encoding': lambda x: RAU.get_piecewise_encoding(x),
-            #
-            # # encoding score from latent variables
-            # 'encode_vis-sim': lambda x: RAU.get_model_encoding_score(x, epoch_mask='output_vis-sim'),
-            # 'encode_vis': lambda x: RAU.get_model_encoding_score(x, epoch_mask='output_vis'),
-            # 'encode_sim': lambda x: RAU.get_model_encoding_score(x, epoch_mask='output_sim'),
-            #
+
             # # weight matrix characteristics
             'weights': lambda x: RAU.get_model_connectivity_metrics(x['filename']),
             'feedback_control': lambda x: RAU.get_output_feedback(x),
-            #
-            # # generalization index
-            # 'generalization': lambda x: RAU.get_model_generalization_index(x, dist_data=dist_data),
-            #
-            # # occlusion state encoding
-            # 'occlusion_state': lambda x: RAU.get_occlusion_state_characteristics(x),
-            # 'cross_time_state_prediction': lambda x: RAU.get_cross_time_state_prediction(x),
 
             # decoding of dx,dy
-            # 'gradient_rep': lambda x: RAU.get_model_decoding_of_gradient_masked(x),
             'gradient_rep_piecewise_sim': lambda x: RAU.get_piecewise_gradient_encoding(x, mask_fk='output_sim', niter=niter)
-
         }
 
         if characteristics_oi is None:

@@ -74,18 +74,6 @@ perle_data_dir_default = '/om/user/rishir/data/monk_inlab/perle/mat/'
 carmen_data_dir_default = '/om/user/rishir/data/monk_inlab/carmen/mat/'
 out_dir_default = '/om/user/rishir/data/behavior'
 
-# dates used previously, missing a lot of carmen data.
-# PERLE_START_DATE_pb = 20191107
-# PERLE_END_DATE_pb = 20191130
-# CARMEN_START_DATE_pb = 20191207
-# CARMEN_END_DATE_pb = 20200130
-
-# dates used for getting all possible behavior
-# PERLE_START_DATE_pb = 20191107
-# PERLE_END_DATE_pb = 20191130
-# CARMEN_START_DATE_pb = 20191209
-# CARMEN_END_DATE_pb = 20200220
-
 
 # new dates, including latest carmen data
 # and trying to match #trials across monkeys
@@ -245,17 +233,9 @@ dfns = [
         'clip_early': True,
     },
 ]
-#
-# recompute_vals = ['monkey_CP_pong_basic', #'monkey_CP_pong_basic_clipped',
-#                   'carmen_pong_basic', #'carmen_pong_basic_clipped',
-#                   'perle_pong_basic', #'perle_pong_basic_clipped'
-#                   'human_pong_basic',
-#                   ]  # ['human_pong_basic', 'monkey_CP_pong_basic', 'carmen_pong_basic']
-# recompute_vals = ['perle_pong_basic_generalization']
 
 recompute_vals = ['human_pong_basic_heldout']
 for dfn in dfns:
-    # dfn['suffix'] = '_full'
     if recompute_vals is None:
         bd = BehavioralDataset(**dfn)
         bd.get_data()
